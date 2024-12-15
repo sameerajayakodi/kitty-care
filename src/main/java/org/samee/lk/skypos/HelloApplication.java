@@ -14,7 +14,6 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1900, 1000);
         stage.setOpacity(1);
         stage.setTitle("Petcare System");
-
         stage.setScene(scene);
         stage.show();
     }
