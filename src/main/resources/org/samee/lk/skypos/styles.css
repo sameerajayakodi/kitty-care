@@ -1,9 +1,9 @@
-/*@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 /* Button Styles */
 .button {
     -fx-background-color: linear-gradient(to bottom,#7F00FF, #7100E3);
-    -fx-background-radius: 10px;
+    -fx-background-radius: 50;
     -fx-text-fill: white;
     -fx-font-size: 16px;
     -fx-font-weight: bold;
@@ -62,15 +62,19 @@
 
 .text-field {
     -fx-background-color:white;
-    -fx-background-radius: 10;
+    -fx-background-radius: 50;
     -fx-padding: 10;
-    -fx-border-radius: 10;
-    -fx-font-size: 16;
+    -fx-font-family: roboto, sans-serif;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+    -fx-font-size: 18;
+
 
     -fx-prompt-text-fill: #BDC3C7;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 6, 0, 1, 1);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0, 2, 4);
 }
-
+.text-field:hover{ -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.4), 10, 0, 0, 4);
+}
 
 .radio-button {
     -fx-font-size: 18px; /* Font size for the text */
@@ -88,13 +92,18 @@
 
 .choice-box{
     -fx-background-color:white;
-    -fx-background-radius: 10;
+    -fx-background-radius: 50;
+
     -fx-padding: 10;
-    -fx-border-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0, 2, 4);
 
     -fx-text-fill: #BDC3C7;
 
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 6, 0, 1, 1);
+
+}
+
+.choice-box:hover{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.4), 10, 0, 0, 4);
 }
 
 .label{
@@ -104,3 +113,15 @@
     -fx-opacity: 0.6;
 }
 
+.navBtn {
+    -fx-background-color: #7100E3;
+    -fx-background-radius: 50;
+
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 5px 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
+    -fx-cursor: hand;
+    -fx-font-family: "Roboto", sans-serif; /* Apply Roboto font */
+}
