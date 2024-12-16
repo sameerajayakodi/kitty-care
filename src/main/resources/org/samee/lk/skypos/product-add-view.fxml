@@ -22,8 +22,8 @@
             <TableColumn prefWidth="231.666748046875" text="Price" />
         </columns>
       </TableView>
-      <Label prefHeight="49.0" prefWidth="1900.0" styleClass="title_label" text="Petcare" />
-      <ImageView fitHeight="505.0" fitWidth="883.0" layoutX="29.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 10">
+      <Label prefHeight="70.0" prefWidth="1900.0" style="-fx-font-size: 28; -fx-text-fill: black;" styleClass="title_label" text="Kitty Care" />
+      <ImageView fitHeight="511.0" fitWidth="910.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 10">
          <image>
             <Image url="@Leonardo_Kino_XL_a_giant_longhaired_cat_with_majestic_features_3.jpg" />
          </image>
@@ -32,19 +32,25 @@
       <TextField layoutX="975.0" layoutY="246.0" prefHeight="56.0" prefWidth="400.0" promptText="ItemName " />
       <TextField layoutX="1438.0" layoutY="246.0" prefHeight="56.0" prefWidth="400.0" promptText="Description" />
 
-                  <Button layoutX="1438.0" layoutY="445.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="400.0" text="Add Product" />
+                  <Button layoutX="1438.0" layoutY="445.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="400.0" text="ADD PRODUCT" />
       <TextField layoutX="1438.0" layoutY="345.0" prefHeight="56.0" prefWidth="400.0" promptText="StockQuantity" />
       <TextField layoutX="1438.0" layoutY="139.0" prefHeight="56.0" prefWidth="400.0" promptText="Brand" />
       <TextField layoutX="975.0" layoutY="345.0" prefHeight="56.0" prefWidth="400.0" promptText="PetType" />
       <ChoiceBox fx:id="choiceBox" layoutX="975.0" layoutY="138.0" prefHeight="56.0" prefWidth="204.0" />
-      <Label layoutX="975.0" layoutY="110.0" text="Select Category" />
-      <Label layoutX="975.0" layoutY="217.0" text="Item Name" />
-      <Label layoutX="975.0" layoutY="317.0" text="Pet Type" />
-      <Label layoutX="975.0" layoutY="416.0" text="Price" />
-      <Label layoutX="1438.0" layoutY="110.0" text="Brand" />
-      <Label layoutX="1438.0" layoutY="217.0" text="Description" />
-      <Label layoutX="1438.0" layoutY="317.0" text="Stock Quantity" />
+      <Label layoutX="990.0" layoutY="110.0" text="Select Category" />
+      <Label layoutX="990.0" layoutY="217.0" text="Item Name" />
+      <Label layoutX="990.0" layoutY="317.0" text="Pet Type" />
+      <Label layoutX="990.0" layoutY="418.0" text="Price" />
+      <Label layoutX="1450.0" layoutY="110.0" text="Brand" />
+      <Label layoutX="1450.0" layoutY="217.0" text="Description" />
+      <Label layoutX="1450.0" layoutY="317.0" text="Stock Quantity" />
       <Label fx:id="myLabel" layoutX="1214.0" layoutY="154.0" prefHeight="27.0" prefWidth="161.0" style="-fx-alignment: canter; -fx-font-size: 18;" />
+      <Button layoutX="1438.0" layoutY="518.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="400.0" style="-fx-background-color: RED;" styleClass="navBtn" text="CLEAR" />
+      <Button layoutX="202.0" layoutY="7.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="290.0" styleClass="navBtn" text="ADD ITEM" />
+      <Button layoutX="531.0" layoutY="7.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="290.0" styleClass="navBtn" text="VIEW ALL ITEMS" />
+      <Button layoutX="852.0" layoutY="7.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="290.0" styleClass="navBtn" text="UPDATE ITEM" />
+      <Button layoutX="1179.0" layoutY="7.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="290.0" styleClass="navBtn" text="REMOVE ITEM" />
+      <Button layoutX="1513.0" layoutY="7.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="290.0" styleClass="navBtn" text="NEW ORDER" />
 
    </children>
 </AnchorPane>
