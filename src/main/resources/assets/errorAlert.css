@@ -1,0 +1,42 @@
+.dialog-pane {
+    -fx-background-color: #fff5f5; /* Light red background */
+    -fx-border-color: #f28b82; /* Red border */
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-padding: 10px;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: #f28b82; /* Red header */
+    -fx-border-radius: 10px 10px 0 0;
+    -fx-text-fill: #b71c1c; /* Dark red text */
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+.dialog-pane .content {
+    -fx-text-fill: #b71c1c; /* Dark red text */
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.button-bar .button {
+    -fx-background-color: #e57373; /* Red button background */
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.button-bar .button:hover {
+    -fx-background-color: #ef5350; /* Hover color */
+}
+
+.button-bar .button:focused {
+    -fx-background-color: #d32f2f; /* Focus color */
+    -fx-border-color: #b71c1c;
+    -fx-border-width: 1px;
+}
