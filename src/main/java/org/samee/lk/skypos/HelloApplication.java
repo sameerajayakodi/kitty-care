@@ -5,14 +5,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("dashboard-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("checkout-view/checkout-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1900, 1000);
         stage.setOpacity(1);
+
         stage.setTitle("KittyCare");
         stage.setScene(scene);
         stage.show();

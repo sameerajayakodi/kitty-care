@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane prefHeight="1000" prefWidth="1900" stylesheets="@../checkout-view/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.samee.lk.skypos.controllers.AnalyticsViewController">
+    <Pane layoutY="78.0" prefHeight="923.0" prefWidth="317.0" styleClass="sidebar">
+        <children>
+            <Button fx:id="logout" layoutX="26.0" layoutY="842.0" onAction="#logoutPageLoad" prefHeight="47.0" prefWidth="255.0" styleClass="secondary-button" text="Logout" />
+            <Button fx:id="removeItem" layoutX="31.0" layoutY="632.0" onAction="#removeItemLoad" prefHeight="49.0" prefWidth="255.0" styleClass="sidebar-button" text="Remove Item" />
+            <Button fx:id="updateItem" layoutX="31.0" layoutY="546.0" onAction="#updateItemLoad" prefHeight="49.0" prefWidth="255.0" styleClass="sidebar-button" text="Update Item" />
+            <Button fx:id="addItems" layoutX="31.0" layoutY="457.0" onAction="#addItemsLoad" prefHeight="49.0" prefWidth="255.0" styleClass="sidebar-button" text="Add Items" />
+            <Button fx:id="viewItem" layoutX="31.0" layoutY="363.0" onAction="#viewItemPageLoad" prefHeight="49.0" prefWidth="255.0" styleClass="sidebar-button" text="View All Items" />
+            <Button fx:id="analytics" layoutX="31.0" layoutY="202.0" onAction="#analyticsLoad" prefHeight="49.0" prefWidth="255.0" styleClass="primary-button" text="Analytics" />
+
+            <!-- Sidebar -->
+
+            <Button fx:id="checkoutpageloadBtn" layoutX="31.0" layoutY="129.0" onAction="#chechoutPageLoad" prefHeight="49.0" prefWidth="255.0" styleClass="sidebar-button" text="Checkout" />
+            <Label layoutX="21.0" layoutY="39.0" prefHeight="17.0" prefWidth="275.0" style="-fx-alignment: center; -fx-font-size: 30; -fx-font-weight: bold;" text="Dashboard" />
+            <Line endX="178.0" layoutX="137.0" layoutY="297.0" startX="-145.0" style="-fx-opacity: 0.2;" />
+            <Line endX="178.0" layoutX="142.0" layoutY="739.0" startX="-145.0" style="-fx-opacity: 0.2;" />
+            <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="72.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../images/time-white.png" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="66.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../images/eye.png" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="66.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../images/add-list.png" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="59.0" layoutY="643.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../images/rubbish-bin.png" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="66.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.8;">
+                <image>
+                    <Image url="@../images/checklist.png" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="66.0" layoutY="852.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../images/account-logout-xxl.png" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="66.0" layoutY="557.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@images/refresh%20(1).png" />
+                </image>
+            </ImageView>
+         <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="66.0" layoutY="557.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../images/refresh%20(1).png" />
+            </image>
+         </ImageView>
+        </children></Pane>
+
+
+    <!-- Dynamic Content Area -->
+    <AnchorPane layoutX="331.0" layoutY="728.0" prefHeight="259.0" prefWidth="964.0" styleClass="content_area" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="331.0" AnchorPane.rightAnchor="605.0" AnchorPane.topAnchor="728.0" />
+
+    <Pane prefHeight="72.0" prefWidth="1900.0" styleClass="top-navbar">
+        <children>
+
+            <!-- Top Navigation Bar -->
+
+            <Label layoutX="889.0" layoutY="20.0" styleClass="navbar-title" text="Analytics" />
+            <Label layoutX="1662.0" layoutY="24.0" prefHeight="27.0" prefWidth="157.0" style="-fx-font-weight: bold;" styleClass="admin_name" text="Welcome Sameera" />
+            <Label layoutX="93.0" layoutY="20.0" styleClass="navbar-title" text="KittyCare" />
+            <ImageView fitHeight="45.0" fitWidth="52.0" layoutX="1828.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.8;">
+                <image>
+                    <Image url="@../images/user.png" />
+                </image>
+            </ImageView>
+            <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="204.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.8;">
+                <image>
+                    <Image url="@../images/paw.png" />
+                </image>
+            </ImageView>
+            <Label fx:id="datetime" layoutX="1317.0" layoutY="24.0" prefHeight="27.0" prefWidth="241.0" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 20;" />
+        </children>
+    </Pane>
+    <AnchorPane layoutX="331.0" layoutY="114.0" prefHeight="566.0" prefWidth="964.0" styleClass="content_area">
+        <children>
+            <TableView fx:id="itemsTable" layoutX="5.0" layoutY="5.0" prefHeight="556.0" prefWidth="955.0">
+                <columns>
+                    <TableColumn prefWidth="90.0" text="ID" />
+                    <TableColumn prefWidth="239.0" text="Item Name" />
+                    <TableColumn prefWidth="177.0" text="Category" />
+                    <TableColumn prefWidth="248.0" text="Stock Quantity" />
+                    <TableColumn prefWidth="199.0" text="Item Price" />
+                </columns>
+            </TableView>
+        </children>
+    </AnchorPane>
+    <AnchorPane layoutX="1317.0" layoutY="113.0" prefHeight="875.0" prefWidth="569.0" style="-fx-background-color: #adc0e6;" styleClass="content_area">
+        <children>
+            <TextField fx:id="idInput" layoutX="23.0" layoutY="78.0" prefHeight="49.0" prefWidth="255.0" promptText="Enter Item ID" style="-fx-background-color: #F5F5F5;" styleClass="searchInput" />
+            <Label layoutX="23.0" layoutY="42.0" prefHeight="27.0" prefWidth="157.0" style="-fx-font-weight: bold; -fx-background-size: 12;" styleClass="admin_name" text="Enter Item ID" />
+            <Label layoutX="23.0" layoutY="211.0" prefHeight="27.0" prefWidth="106.0" style="-fx-font-weight: bold; -fx-background-size: 12;" styleClass="admin_name" text="Item Details" />
+            <Pane layoutX="21.0" layoutY="246.0" prefHeight="270.0" prefWidth="534.0" styleClass="orderDetailsCard">
+                <children>
+                    <Label layoutX="39.0" layoutY="41.0" prefHeight="27.0" prefWidth="125.0" styleClass="item-details" text="Item Name" />
+                    <Label layoutX="39.0" layoutY="90.0" prefHeight="27.0" prefWidth="125.0" styleClass="item-details" text="Category" />
+                    <Label layoutX="39.0" layoutY="184.0" prefHeight="27.0" prefWidth="125.0" styleClass="item-details" text="Item Price" />
+                    <Label layoutX="39.0" layoutY="135.0" prefHeight="27.0" prefWidth="157.0" styleClass="item-details" text="Available Quantity" />
+                    <Label fx:id="itemNameLbl" layoutX="211.0" layoutY="44.0" prefHeight="27.0" prefWidth="296.0" style="-fx-background-size: 12;" styleClass="admin_name" />
+                    <Label fx:id="categoryLbl" layoutX="211.0" layoutY="90.0" prefHeight="27.0" prefWidth="296.0" style="-fx-background-size: 12;" styleClass="admin_name" />
+                    <Label fx:id="qtyLbl" layoutX="211.0" layoutY="135.0" prefHeight="27.0" prefWidth="296.0" style="-fx-background-size: 12;" styleClass="admin_name" />
+                    <Label fx:id="priceLbl" layoutX="211.0" layoutY="184.0" prefHeight="27.0" prefWidth="296.0" style="-fx-background-size: 12;" styleClass="admin_name" />
+                </children>
+            </Pane>
+            <Line endX="307.0" layoutX="262.0" layoutY="657.0" startX="-262.0" style="-fx-opacity: 0.2;" />
+            <Line endX="307.0" layoutX="269.0" layoutY="182.0" startX="-262.0" style="-fx-opacity: 0.2;" />
+        </children>
+    </AnchorPane>
+    <Label layoutX="765.0" layoutY="78.0" prefHeight="27.0" prefWidth="96.0" style="-fx-font-weight: bold;" styleClass="admin_name" text="ALL ITEMS" />
+
+</AnchorPane>
