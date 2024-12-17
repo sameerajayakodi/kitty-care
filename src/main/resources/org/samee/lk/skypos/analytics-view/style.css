@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.top-navbar {
+    -fx-background-color: white;
+    -fx-padding: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
+}
+.navbar-title {
+    -fx-text-fill: #333333;
+    -fx-font-weight: bold;
+    -fx-font-size: 24px;
+}
+.sidebar {
+    -fx-background-color:white;
+    -fx-padding: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 8, 0, 0, 2);
+}
+.content_area {
+    -fx-background-color: white;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 8, 0, 0, 2);
+}
+.admin_name {
+    -fx-font-size: 18;
+}
+.table-view {
+    font-weight: bold;
+    -fx-border-color: white;
+    -fx-font-size: 14;
+}
+.table-view .column-header{
+    -fx-background-color:  #F5F5F5;
+    -fx-text-fill: white;
+}
+.table-view .cell {
+    -fx-font-size: 16;
+    -fx-alignment: center;
+}
+.searchInput {
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-font-size: 18;
+    -fx-text-fill: black;
+}
+.orderDetailsCard{
+    -fx-text-fill: white;
+    -fx-background-color:#F5F5F5;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+.primary-button{
+    -fx-background-color:  #111184 ;
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+    -fx-border-color: none;
+    -fx-background-radius: 10;
+    -fx-text-fill: white;
+}
+.primary-button:hover{
+    -fx-cursor: hand;
+    -fx-background-color:#0D0D67;
+}
+.secondary-button{
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 18;
+    -fx-border-color: none;
+    -fx-background-radius: 10;
+    -fx-background-color:  #303030;
+}
+.secondary-button:hover{
+    -fx-cursor: hand;
+    -fx-background-color: black;
+}
+.sidebar-button {
+    -fx-font-weight: bold;
+    -fx-background-color: #F5F5F5;
+    -fx-font-size: 18;
+    -fx-border-color: none;
+    -fx-background-radius: 10;
+}
+.sidebar-button:hover{
+    -fx-background-color: #D3D3D3;
+    -fx-cursor: hand;
+}
+.item-details{
+
+    -fx-font-size: 16;
+    -fx-text-fill: gray;
+}
+.item-details1{
+
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+}
+
+.table-view .column-header-background {
+
+    -fx-background-color: #111184 ; /* Blue header background */
+    -fx-border-width: 0 0 1px 0;
+
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-alignment: CENTER-LEFT;
+    -fx-border-radius: 10;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #ffffff; /* White text color */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 5px;
+}
+
+/* Row styling */
+
+
+
+
+
+/* Cell content alignment */
+.table-cell {
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER; /* Center align the text */
+    -fx-font-size: 13px;
+    -fx-padding: 4px;
+}
