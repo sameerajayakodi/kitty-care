@@ -127,4 +127,72 @@
     -fx-alignment: CENTER; /* Center align the text */
     -fx-font-size: 13px;
     -fx-padding: 4px;
+    -fx-fill: white;
 }
+
+
+.top-analytics{
+    -fx-background-color: #111184;
+    -fx-text-fill: white;
+    -fx-font-size: 60;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+}
+
+
+/* Existing Line Style */
+.chart-series-line {
+    -fx-stroke: #111184;  /* Line color */
+    -fx-stroke-width: 3;
+}
+
+/* Make the dots green */
+.chart-line-symbol {
+    -fx-background-color: #111184; /* Dots in green */
+    -fx-background-insets: 0, 1;
+
+    -fx-padding: 6; /* Ensure the dots are sized correctly */
+
+}
+
+/* Hide symbols (dots) on the chart if needed */
+.chart-area-symbol {
+    -fx-opacity: 0; /* Hide symbols if they appear */
+}
+
+/* Chart background */
+.chart {
+    -fx-background-color: #f9f9f9;
+}
+
+/* Axis styles */
+.axis {
+    -fx-tick-label-fill: #333;
+    -fx-label-padding: 10;
+}
+
+.axis-label {
+    -fx-text-fill: #555;
+    -fx-font-weight: bold;
+}
+
+/*.overstockTable .column-header-background {*/
+/*    -fx-background-color: #C6373C;*/
+
+/*}*/
+
+/*.overstockTable .cell {*/
+/*    -fx-background-color: #E9A6A8;*/
+
+/*}*/
+
+/*.lowstockTable .column-header-background {*/
+/*    -fx-background-color: #303030;*/
+
+/*}*/
+
+/*.lowstockTable .cell {*/
+/*    -fx-background-color: #D3D3D3;*/
+
+/*}*/
