@@ -1,8 +1,10 @@
 package org.samee.lk.skypos.controllers;
-
+import javafx.scene.input.MouseEvent;
+import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -18,6 +20,7 @@ import org.samee.lk.skypos.models.ItemModel;
 import org.samee.lk.skypos.models.OrderModel;
 import org.samee.lk.skypos.tm.ItemTM;
 import org.samee.lk.skypos.tm.OrderTM;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -47,6 +50,7 @@ public class CheckoutViewController implements Initializable {
     public Button viewItem;
     public Button analytics;
     private double subTotal = 0;
+    ItemTM itemTM;
     String formatted;
     ArrayList<OrderDetailDTO> orderDetailsDto = null;
     @Override
@@ -77,6 +81,23 @@ public class CheckoutViewController implements Initializable {
 
 
         itemsTable.setItems(FXCollections.observableArrayList(items));
+        itemsTable.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                if (mouseEvent.isPrimaryButtonDown() && mouseEvent.getClickCount() == 1) {
+                    // Get the selected item as an ItemDTO
+                   itemTM= itemsTable.getSelectionModel().getSelectedItem();
+
+
+                    idInput.setText(String.valueOf(itemTM.getId()));
+                    itemNameLbl.setText(itemTM.getName());
+                    categoryLbl.setText(itemTM.getCategory());
+                    qtyLbl.setText(String.valueOf(itemTM.getQty()));
+                    priceLbl.setText(String.valueOf(itemTM.getPrice()));
+                }
+            }
+        });
+
         ordersDetails= new ArrayList<>();
 
         orderDetailsDto = new ArrayList<>();
@@ -127,8 +148,16 @@ public class CheckoutViewController implements Initializable {
                 qtyLbl.setText(String.valueOf(newQty));
                 subTotal += total;
                 totalPriceLbl.setText(String.valueOf(subTotal));
-
                 orderDetailTable.setItems(FXCollections.observableArrayList(ordersDetails));
+                itemNameLbl.setText("");
+                categoryLbl.setText("");
+                qtyLbl.setText("");
+                priceLbl.setText("");
+
+                idInput.clear();
+                orderQtyInput.clear();
+                orderQtyInput.clear();
+
             }else {
                 showErrorAlert("Please enter valid order quantity");
             }
@@ -146,12 +175,23 @@ public class CheckoutViewController implements Initializable {
 
         boolean status = OrderModel.checkout(orderDTO);
         if (status){
-
-            refreshTable();
+            itemNameLbl.setText("");
+            categoryLbl.setText("");
+            qtyLbl.setText("");
+            priceLbl.setText("");
+            ordersDetails.clear();
+            orderDetailTable.setItems(FXCollections.observableArrayList(ordersDetails));
+            idInput.clear();
+            orderQtyInput.clear();
+            subTotal = 0;
+            totalPriceLbl.setText(String.valueOf(subTotal));
+            refreshItemTable();
             showSuccessAlert("order checked out successfully");
+        }else{
+            showErrorAlert("order checked out failed");
         }
-        showErrorAlert("order checked out failed");
-        System.out.println("checkoutButton");
+
+
 
     }
 
@@ -159,7 +199,7 @@ public class CheckoutViewController implements Initializable {
         showSuccessAlert("Order cancelled");
     }
 
-    private void refreshTable() {
+    private void refreshItemTable() {
         try {
             ArrayList<ItemTM> tms = ItemModel.loadItems();
             itemsTable.setItems(FXCollections.observableArrayList(tms));
@@ -167,6 +207,10 @@ public class CheckoutViewController implements Initializable {
            showErrorAlert("Error refreshing table: " + e.getMessage());
         }
     }
+
+
+
+
     public  void showSuccessAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION, message, ButtonType.OK);
 
@@ -211,9 +255,7 @@ public class CheckoutViewController implements Initializable {
     public void analyticsLoad(ActionEvent actionEvent) throws IOException {
         Parent mainPageRoot = FXMLLoader.load(getClass().getResource("/org/samee/lk/skypos/analytics-view/analytics-view.fxml"));
         Stage stage = (Stage) analytics.getScene().getWindow();
-
         stage.setScene(new Scene(mainPageRoot));
-
         stage.show();
     }
 }
