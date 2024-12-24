@@ -70,21 +70,18 @@ The Singleton design pattern is used for database connection management to:
 ## Technologies Used
 
 ### Backend
-- PHP or Java (MVC pattern) for business logic and database interactions.
+- Java (MVC pattern) for business logic and database interactions.
 
 ### Database
 - MySQL to store and manage data.
 
 ### Frontend
-- HTML, CSS, and JavaScript for a responsive and user-friendly interface.
-- Optional: React or Angular for enhanced user experience.
+- Fxml.
+
 
 ---
 
 ## Additional Features
-
-### Security
-- Encrypt sensitive data such as user and payment information.
 
 ### Reporting
 - Generate detailed reports for sales, stock levels, and order history.
@@ -93,7 +90,7 @@ The Singleton design pattern is used for database connection management to:
 - Secure admin access for product and order management.
 
 ### User-Friendly Interface
-- Ensure responsiveness and ease of use for managing products and orders.
+- Ensure ease of use for managing products and orders.
 
 ---
 
