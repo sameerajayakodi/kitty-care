@@ -50,6 +50,7 @@
 
                     <!-- Footer Text -->
                     <Label layoutX="183.0" layoutY="925.0" style="-fx-font-size: 12; -fx-opacity: 0.8;" text="© 2024 KittyCare. All rights reserved." />
+               <Label fx:id="datetie" layoutX="160.0" layoutY="175.0" prefHeight="27.0" prefWidth="241.0" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 20;" />
                 </children>
             </Pane>
         </children>

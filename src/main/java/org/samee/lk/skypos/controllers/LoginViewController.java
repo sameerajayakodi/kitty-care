@@ -2,6 +2,7 @@ package org.samee.lk.skypos.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,12 +13,16 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ResourceBundle;
 
 public class LoginViewController {
+    public Label errorLbl;
     public TextField usernameField;
     public PasswordField passwordField;
     public Button loginButton;
-    public Label errorLbl;
 
     public void handleLogin(ActionEvent actionEvent) throws IOException {
 
@@ -49,4 +54,6 @@ public class LoginViewController {
 
         errorLbl.setTextFill(Color.RED);
     }
+
+
 }

@@ -1,4 +1,7 @@
 package org.samee.lk.skypos.controllers;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
@@ -22,13 +25,21 @@ import org.samee.lk.skypos.tm.ItemTM;
 import org.samee.lk.skypos.tm.OrderTM;
 
 
+import java.awt.*;
+import java.awt.print.PrinterException;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import javax.swing.*;
+
 public class CheckoutViewController implements Initializable {
 
     public TableView<ItemTM> itemsTable;
@@ -181,36 +192,114 @@ public class CheckoutViewController implements Initializable {
     }
 
     public void checkoutAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        OrderDTO orderDTO = new OrderDTO(formatted, subTotal, orderDetailsDto);
 
-        OrderDTO orderDTO = new OrderDTO(formatted,subTotal,orderDetailsDto);
-
-        if(!orderDetailsDto.isEmpty()){
+        if (!orderDetailsDto.isEmpty()) {
             boolean status = OrderModel.checkout(orderDTO);
-            if (status){
-                itemNameLbl.setText("");
-                categoryLbl.setText("");
-                qtyLbl.setText("");
-                priceLbl.setText("");
-                ordersDetails.clear();
-                orderDetailTable.setItems(FXCollections.observableArrayList(ordersDetails));
-                idInput.clear();
-                orderQtyInput.clear();
-                subTotal = 0;
-                totalPriceLbl.setText(String.valueOf(subTotal));
+            if (status) {
+                printReceipt();
+                clearCheckoutForm();
                 refreshItemTable();
-                showSuccessAlert("order checked out successfully");
-            }else{
-                showErrorAlert("order checked out failed");
+                showSuccessAlert("Order checked out successfully");
+            } else {
+                showErrorAlert("Order checkout failed");
             }
-
-
-        }else {
-            showErrorAlert("Chekout failed");
+        } else {
+            showErrorAlert("Checkout failed - cart is empty");
         }
-
-
     }
 
+    private void printReceipt() {
+        String receiptContent = generateReceiptContent();
+        saveReceipt(receiptContent);
+        printToDefaultPrinter(receiptContent);
+    }
+
+    private String generateReceiptContent() {
+        StringBuilder receipt = new StringBuilder();
+        receipt.append("\n");
+        receipt.append("          SKY POS SYSTEM          \n");
+        receipt.append("     No. 123, Main Street, City   \n");
+        receipt.append("       Tel: +94 11 2223334        \n");
+        receipt.append("     Email: skypos@gmail.com      \n");
+        receipt.append("\n");
+        receipt.append("────────────────────────────────────\n");
+        receipt.append("Receipt No: ").append(System.currentTimeMillis() % 10000).append("\n");
+        receipt.append("Date: ").append(formatted).append("\n");
+        receipt.append("Time: ").append(LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"))).append("\n");
+        receipt.append("────────────────────────────────────\n");
+        receipt.append("\n");
+        receipt.append(String.format("%-4s %-20s %4s %8s\n", "No.", "Item", "Qty", "Amount"));
+        receipt.append("────────────────────────────────────\n");
+
+        int itemNo = 1;
+        for (OrderTM order : ordersDetails) {
+            receipt.append(String.format("%-4d %-20s %4d %8.2f\n",
+                    itemNo++,
+                    truncateString(order.getItemName(), 20),
+                    order.getOrderQty(),
+                    order.getTotalPrice()));
+        }
+
+        receipt.append("\n");
+        receipt.append("────────────────────────────────────\n");
+        receipt.append(String.format("%-29s %8.2f\n", "Sub Total:", subTotal));
+        receipt.append(String.format("%-29s %8.2f\n", "Discount (0%):", 0.00));
+        receipt.append(String.format("%-29s %8.2f\n", "Net Total:", subTotal));
+        receipt.append("────────────────────────────────────\n");
+        receipt.append("\n");
+        receipt.append("          Thank You!               \n");
+        receipt.append("       Please Come Again!          \n");
+        receipt.append("\n");
+        receipt.append("     Software By: Your Company     \n");
+        receipt.append("────────────────────────────────────\n");
+
+        return receipt.toString();
+    }
+
+    private String truncateString(String str, int length) {
+        if (str.length() > length) {
+            return str.substring(0, length - 3) + "...";
+        }
+        return str;
+    }
+
+    private void saveReceipt(String content) {
+        String fileName = "receipts/receipt-" + System.currentTimeMillis() + ".txt";
+        File directory = new File("receipts");
+        if (!directory.exists()) {
+            directory.mkdir();
+        }
+
+        try (PrintWriter writer = new PrintWriter(new FileWriter(fileName))) {
+            writer.print(content);
+        } catch (IOException e) {
+            showErrorAlert("Error saving receipt: " + e.getMessage());
+        }
+    }
+
+    private void printToDefaultPrinter(String content) {
+        JTextArea textArea = new JTextArea(content);
+        textArea.setFont(new Font("Monospaced", Font.PLAIN, 10));
+        try {
+            textArea.print();
+        } catch (PrinterException e) {
+            showErrorAlert("Error printing receipt: " + e.getMessage());
+        }
+    }
+
+    private void clearCheckoutForm() {
+        itemNameLbl.setText("");
+        categoryLbl.setText("");
+        qtyLbl.setText("");
+        priceLbl.setText("");
+        ordersDetails.clear();
+        orderDetailTable.setItems(FXCollections.observableArrayList(ordersDetails));
+        idInput.clear();
+        orderQtyInput.clear();
+        subTotal = 0;
+        totalPriceLbl.setText(String.valueOf(subTotal));
+    }
     public void cancelOrder(ActionEvent actionEvent) {
 
         ordersDetails.clear();
