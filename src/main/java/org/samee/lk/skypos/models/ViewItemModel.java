@@ -9,7 +9,7 @@ public class ViewItemModel {
     public static ArrayList<ItemTM> SearchItem(String searchName) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kitty_care", "root", "acpt");
-        PreparedStatement preparedStatement = connection.prepareStatement("SELECT id, name, category, qty, price FROM item WHERE id like ? OR name LIKE ? OR category LIKE ?");
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT id, name, category, qty, price FROM item WHERE (id LIKE ? OR name LIKE ? OR category LIKE ?) AND availability = TRUE");
         preparedStatement.setString(1, "%" + searchName + "%");
         preparedStatement.setString(2, "%" + searchName + "%");
         preparedStatement.setString(3, "%" + searchName + "%");

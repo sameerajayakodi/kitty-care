@@ -235,30 +235,37 @@ public class UpdateController implements Initializable {
     }
 
     public void removeItemAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        try {
-
-            Object[] result = ItemModel.removeItem(new ItemDTO(Integer.parseInt(itemId.getText()), tonameInput.getText(), categoryInput.getText(), Integer.parseInt(qtyInput.getText()), Double.parseDouble(priceInput.getText())));
-            boolean isSuccess = (boolean) result[0];
-            String message = (String) result[1];
-            if (isSuccess) {
-                showSuccessAlert(message);
-
-                itemId.setText("");
-                tonameInput.setText("");
-                categoryInput.setText("");
-                qtyInput.setText("");
-                priceInput.setText("");
-
-                refreshItemTable();
-            } else {
-                showErrorAlert(message);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout Confirmation");
+        alert.setHeaderText("Are you sure you want to logout?");
+        alert.setContentText("Click OK to logout or Cancel to stay.");
+        alert.getDialogPane().getStylesheets().add(getClass().getResource("/assets/confirmAlert.css").toExternalForm());
+        alert.getDialogPane().getStyleClass().add("dialog-pane");
+        alert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                int id = Integer.parseInt(itemId.getText());
+                boolean status = false;
+                try {
+                    status = ItemModel.removeItem(id);
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                if(status){
+                    showSuccessAlert("Item removed successfully");
+                    refreshItemTable();
+                }else{
+                    showErrorAlert("Item removal Failed!");
+                }
             }
-        } catch (NumberFormatException e) {
-            showErrorAlert("Invalid input! Please check the values you entered.");
-        } catch (Exception e) {
-            showErrorAlert("An unexpected error occurred: " + e.getMessage());
-            e.printStackTrace();
-        }
+        });
+
+
+
+
+
+
     }
 
 }

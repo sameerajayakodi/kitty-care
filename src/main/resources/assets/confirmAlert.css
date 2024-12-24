@@ -1,6 +1,6 @@
 .dialog-pane {
-    -fx-background-color: #f0f9f5;
-    -fx-border-color: #b2f0c8;
+    -fx-background-color: #fff3f3; /* Light red background for warning */
+    -fx-border-color: #f44336; /* Red border to indicate caution */
     -fx-border-width: 2px;
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
@@ -8,22 +8,22 @@
 }
 
 .dialog-pane .header-panel {
-    -fx-background-color: #b2f0c8;
+    -fx-background-color: #f44336; /* Red background for header */
     -fx-border-radius: 10px 10px 0 0;
-    -fx-text-fill: #2e7d32;
+    -fx-text-fill: white; /* White text for contrast */
     -fx-font-weight: bold;
     -fx-font-size: 16px;
 }
 
 .dialog-pane .content {
-    -fx-text-fill: #2e7d32;
+    -fx-text-fill: #d32f2f; /* Darker red for the content text */
     -fx-font-size: 14px;
     -fx-padding: 10px;
     -fx-font-family: "Segoe UI", Arial, sans-serif;
 }
 
 .button-bar .button {
-    -fx-background-color: #81c784;
+    -fx-background-color: #f44336; /* Red background for the buttons */
     -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
@@ -32,11 +32,24 @@
 }
 
 .button-bar .button:hover {
-    -fx-background-color: #66bb6a;
+    -fx-background-color: #d32f2f; /* Darker red when hovered */
 }
 
 .button-bar .button:focused {
-    -fx-background-color: #4caf50;
-    -fx-border-color: #2e7d32;
+    -fx-background-color: #c62828; /* Even darker red when focused */
+    -fx-border-color: #b71c1c; /* Border color for focused state */
     -fx-border-width: 1px;
+}
+
+.button-bar .button:default {
+    -fx-background-color: #c62828; /* Default button color */
+    -fx-text-fill: white;
+}
+
+.dialog-pane .header-panel .label {
+    -fx-text-fill: white; /* White text color for the header label */
+}
+
+.dialog-pane .content .text {
+    -fx-text-fill: #d32f2f; /* Dark red text for content */
 }

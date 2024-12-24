@@ -15,7 +15,7 @@ public class ItemModel {
     public  static ArrayList<ItemTM> loadItems() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kitty_care","root", "acpt");
-        PreparedStatement preparedStatement = connection.prepareStatement("SELECT id, name, category, qty, price FROM item");
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT id, name, category, qty, price FROM item where availability = true");
         ResultSet resultSet =  preparedStatement.executeQuery();
         ArrayList<ItemTM> tms = new ArrayList();
         while (resultSet.next()) {
@@ -30,7 +30,7 @@ public class ItemModel {
         ItemDTO itemDTO = null;
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kitty_care","root", "acpt");
-        PreparedStatement preparedStatement = connection.prepareStatement("SELECT id, name, category, qty, price FROM item where id = ?");
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT id, name, category, qty, price FROM item where id = ? ");
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next()) {
@@ -56,23 +56,31 @@ public class ItemModel {
         }
     }
 
-    public static Object[] removeItem(ItemDTO itemDTO) throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kitty_care", "root", "acpt");
-        PreparedStatement checkStmt = connection.prepareStatement("SELECT COUNT(*) FROM order_detail WHERE iid = ?");
-        checkStmt.setObject(1, itemDTO.getId());
-        ResultSet rs = checkStmt.executeQuery();
-        if (rs.next() && rs.getInt(1) > 0) {
-            return new Object[]{false, "Item cannot be deleted as it is referenced in the Order Details."};
-        }
-        PreparedStatement deleteStmt = connection.prepareStatement("DELETE FROM item WHERE id = ?");
-        deleteStmt.setObject(1, itemDTO.getId());
-        int rowsAffected = deleteStmt.executeUpdate();
-        if (rowsAffected > 0) {
-            return new Object[]{true, "Item deleted successfully."};
-        } else {
-            return new Object[]{false, "Item deletion failed. The item might not exist."};
-        }
+    public static boolean removeItem(int id) throws ClassNotFoundException, SQLException {
+        boolean status = false;
+            Connection connection =DB.getDbConnection();
+
+
+
+            String query = "UPDATE item SET availability = FALSE WHERE id = ?";
+
+
+            try (PreparedStatement stmt = connection.prepareStatement(query)) {
+
+                stmt.setInt(1, id);
+
+
+                int rowsAffected = stmt.executeUpdate();
+
+                if (rowsAffected > 0) {
+                    status = true;
+                } else {
+                    status = false;
+                }
+            }
+
+            return status;
+
     }
 
     public static boolean addNewItem(ItemDTO itemDTO) throws ClassNotFoundException, SQLException {
