@@ -25,7 +25,7 @@ public class AnalyticsModel {
         int itemsSold = 0;
         int totalItems = 0;
 
-        // SQL queries to fetch required metrics
+
         String totalOrdersQuery = "SELECT COUNT(*) AS total_orders FROM orders";
         String totalRevenueQuery = "SELECT SUM(amount) AS total_revenue FROM orders";
         String itemsSoldQuery = "SELECT SUM(qty) AS items_sold FROM order_detail";
@@ -104,14 +104,14 @@ public class AnalyticsModel {
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                // Get the DATETIME value
+
                 Timestamp orderDate = rs.getTimestamp("order_date");
 
-                // Format the DATETIME as a string (e.g., "yyyy-MM-dd HH:mm:ss")
+
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String formattedDate = sdf.format(orderDate);
 
-                // Add the formatted date and amount to the RecentOrderTM array
+
                 recentOrders.add(new RecentOrderTM(formattedDate, rs.getDouble("amount")));
             }
         }

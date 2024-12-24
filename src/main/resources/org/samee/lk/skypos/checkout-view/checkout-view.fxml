@@ -15,7 +15,6 @@
     <Pane layoutY="78.0" prefHeight="923.0" prefWidth="317.0" styleClass="sidebar">
         <children>
             <Button fx:id="logout" layoutX="26.0" layoutY="842.0" onAction="#logoutPageLoad" prefHeight="47.0" prefWidth="255.0" styleClass="secondary-button" text="Logout" />
-            <Button fx:id="removeItem" layoutX="31.0" layoutY="632.0" onAction="#removeItemLoad" prefHeight="49.0" prefWidth="255.0" styleClass="sidebar-button" text="Remove Item" />
             <Button fx:id="updateItem" layoutX="31.0" layoutY="546.0" onAction="#updateItemLoad" prefHeight="49.0" prefWidth="255.0" styleClass="sidebar-button" text="Update Item" />
             <Button fx:id="addItems" layoutX="31.0" layoutY="457.0" onAction="#addItemsLoad" prefHeight="49.0" prefWidth="255.0" styleClass="sidebar-button" text="Add Items" />
             <Button fx:id="viewItem" layoutX="31.0" layoutY="363.0" onAction="#viewItemPageLoad" prefHeight="49.0" prefWidth="255.0" styleClass="sidebar-button" text="View All Items" />
@@ -42,11 +41,6 @@
                <Image url="@../images/add-list.png" />
             </image>
          </ImageView>
-         <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="59.0" layoutY="643.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../images/rubbish-bin.png" />
-            </image>
-         </ImageView>
          <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="66.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.8;">
             <image>
                <Image url="@../images/checkout-white.png" />
@@ -62,7 +56,7 @@
                <Image url="@../images/refresh%20(1).png" />
             </image>
          </ImageView>
-         <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="59.0" layoutY="557.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="66.0" layoutY="557.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@../images/refresh.png" />
             </image>
@@ -105,28 +99,34 @@
          <Label fx:id="datetime" layoutX="1317.0" layoutY="24.0" prefHeight="27.0" prefWidth="241.0" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 20;" />
       </children>
    </Pane>
-   <AnchorPane layoutX="331.0" layoutY="114.0" prefHeight="566.0" prefWidth="964.0" styleClass="content_area">
+   <AnchorPane layoutX="330.0" layoutY="114.0" prefHeight="566.0" prefWidth="971.0" styleClass="content_area">
       <children>
-         <TableView fx:id="itemsTable" layoutX="5.0" layoutY="5.0" prefHeight="556.0" prefWidth="955.0">
+         <TableView fx:id="itemsTable" layoutX="12.0" layoutY="5.0" prefHeight="556.0" prefWidth="948.0">
            <columns>
              <TableColumn prefWidth="90.0" text="ID" />
              <TableColumn prefWidth="239.0" text="Item Name" />
                <TableColumn prefWidth="177.0" text="Category" />
-               <TableColumn prefWidth="248.0" text="Stock Quantity" />
-               <TableColumn prefWidth="199.0" text="Item Price" />
+               <TableColumn prefWidth="193.0" text="Stock Quantity" />
+               <TableColumn prefWidth="263.0" text="Item Price" />
            </columns>
          </TableView>
       </children>
    </AnchorPane>
-   <AnchorPane layoutX="1317.0" layoutY="113.0" prefHeight="875.0" prefWidth="569.0" style="-fx-background-color: #adc0e6;" styleClass="content_area">
+   <AnchorPane layoutX="1317.0" layoutY="93.0" prefHeight="895.0" prefWidth="577.0" style="-fx-background-color: #adc0e6;" styleClass="content_area">
       <children>
-         <Button layoutX="303.0" layoutY="78.0" onAction="#searchItem" prefHeight="49.0" prefWidth="255.0" styleClass="primary-button" text="Search Item" />
-         <TextField fx:id="idInput" layoutX="23.0" layoutY="78.0" prefHeight="49.0" prefWidth="255.0" promptText="Enter Item ID" style="-fx-background-color: #F5F5F5;" styleClass="searchInput" />
-         <Button layoutX="303.0" layoutY="797.0" onAction="#checkoutAction" prefHeight="49.0" prefWidth="255.0" styleClass="primary-button" text="Checkout" />
-         <Label layoutX="23.0" layoutY="42.0" prefHeight="27.0" prefWidth="157.0" style="-fx-font-weight: bold; -fx-background-size: 12;" styleClass="admin_name" text="Enter Item ID" />
-         <Button layoutX="23.0" layoutY="797.0" onAction="#cancelOrder" prefHeight="49.0" prefWidth="255.0" style="-fx-background-color: #30303;" styleClass="secondary-button" text="Cancel Order" />
-         <Label layoutX="23.0" layoutY="211.0" prefHeight="27.0" prefWidth="106.0" style="-fx-font-weight: bold; -fx-background-size: 12;" styleClass="admin_name" text="Item Details" />
-         <Pane layoutX="21.0" layoutY="246.0" prefHeight="270.0" prefWidth="534.0" styleClass="orderDetailsCard">
+         <ImageView id="refreshInput" blendMode="LIGHTEN" fitHeight="35.0" fitWidth="31.0" layoutX="514.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../images/refresh-white.png" />
+            </image>
+         </ImageView>
+         <Button blendMode="LIGHTEN" layoutX="501.0" layoutY="54.0" onAction="#refreshItemName" prefHeight="49.0" prefWidth="56.0" styleClass="primary-button" />
+         <Button layoutX="303.0" layoutY="155.0" onAction="#searchItem" prefHeight="49.0" prefWidth="255.0" styleClass="primary-button" text="Search Item" />
+         <TextField fx:id="idInput" layoutX="23.0" layoutY="155.0" prefHeight="49.0" prefWidth="255.0" promptText="Enter Item ID" style="-fx-background-color: #F5F5F5;" styleClass="searchInput" />
+         <Button layoutX="303.0" layoutY="811.0" onAction="#checkoutAction" prefHeight="49.0" prefWidth="255.0" styleClass="primary-button" text="Checkout" />
+         <Label layoutX="23.0" layoutY="116.0" prefHeight="27.0" prefWidth="157.0" style="-fx-font-weight: bold; -fx-background-size: 12;" styleClass="admin_name" text="Enter Item ID" />
+         <Button layoutX="23.0" layoutY="811.0" onAction="#cancelOrder" prefHeight="49.0" prefWidth="255.0" style="-fx-background-color: #30303;" styleClass="secondary-button" text="Cancel Order" />
+         <Label layoutX="23.0" layoutY="241.0" prefHeight="27.0" prefWidth="106.0" style="-fx-font-weight: bold; -fx-background-size: 12;" styleClass="admin_name" text="Item Details" />
+         <Pane layoutX="23.0" layoutY="276.0" prefHeight="270.0" prefWidth="534.0" styleClass="orderDetailsCard">
             <children>
                <Label layoutX="39.0" layoutY="41.0" prefHeight="27.0" prefWidth="125.0" styleClass="item-details" text="Item Name" />
                <Label layoutX="39.0" layoutY="90.0" prefHeight="27.0" prefWidth="125.0" styleClass="item-details" text="Category" />
@@ -138,38 +138,39 @@
                <Label fx:id="priceLbl" layoutX="211.0" layoutY="184.0" prefHeight="27.0" prefWidth="296.0" style="-fx-background-size: 12;" styleClass="admin_name" />
             </children>
          </Pane>
-         <TextField fx:id="orderQtyInput" layoutX="23.0" layoutY="582.0" prefHeight="49.0" prefWidth="255.0" promptText="Enter Order Quantity" style="-fx-background-color: #F5F5F5;" styleClass="searchInput" />
-         <Label layoutX="23.0" layoutY="538.0" prefHeight="27.0" prefWidth="157.0" style="-fx-font-weight: bold; -fx-background-size: 12;" styleClass="admin_name" text="Order Quantity" />
-         <Button layoutX="303.0" layoutY="582.0" onAction="#addonCart" prefHeight="49.0" prefWidth="255.0" styleClass="secondary-button" text="Add Cart" />
-         <Label layoutX="23.0" layoutY="674.0" prefHeight="27.0" prefWidth="157.0" style="-fx-font-weight: bold; -fx-background-size: 12;" styleClass="admin_name" text="Summery" />
-         <Label layoutX="23.0" layoutY="721.0" prefHeight="27.0" prefWidth="106.0" style="-fx-font-weight: bold; -fx-background-size: 12;" styleClass="admin_name" text="Total Price : " />
-         <Label fx:id="totalPriceLbl" layoutX="375.0" layoutY="717.0" prefHeight="35.0" prefWidth="173.0" styleClass="navbar-title" text="0.0" />
-         <Line endX="307.0" layoutX="262.0" layoutY="657.0" startX="-262.0" style="-fx-opacity: 0.2;" />
-         <Line endX="307.0" layoutX="269.0" layoutY="182.0" startX="-262.0" style="-fx-opacity: 0.2;" />
-         <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="324.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.8;">
+         <TextField fx:id="orderQtyInput" layoutX="23.0" layoutY="607.0" prefHeight="49.0" prefWidth="255.0" promptText="Enter Order Quantity" style="-fx-background-color: #F5F5F5;" styleClass="searchInput" />
+         <Label layoutX="23.0" layoutY="569.0" prefHeight="27.0" prefWidth="157.0" style="-fx-font-weight: bold; -fx-background-size: 12;" styleClass="admin_name" text="Order Quantity" />
+         <Button layoutX="303.0" layoutY="607.0" onAction="#addonCart" prefHeight="49.0" prefWidth="255.0" styleClass="secondary-button" text="Add Cart" />
+         <Label layoutX="23.0" layoutY="708.0" prefHeight="27.0" prefWidth="157.0" style="-fx-font-weight: bold; -fx-background-size: 12;" styleClass="admin_name" text="Summary" />
+         <Label layoutX="23.0" layoutY="752.0" prefHeight="27.0" prefWidth="106.0" style="-fx-font-weight: bold; -fx-background-size: 12;" styleClass="admin_name" text="Total Price : " />
+         <Label fx:id="totalPriceLbl" layoutX="375.0" layoutY="748.0" prefHeight="35.0" prefWidth="173.0" styleClass="navbar-title" text="0.0" />
+         <Line endX="307.0" layoutX="265.0" layoutY="682.0" startX="-262.0" style="-fx-opacity: 0.2;" />
+         <Line endX="307.0" layoutX="267.0" layoutY="228.0" startX="-262.0" style="-fx-opacity: 0.2;" />
+         <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="324.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.8;">
             <image>
                <Image url="@../images/search-12-xxl.png" />
             </image>
          </ImageView>
-         <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="324.0" layoutY="593.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.8;">
+         <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="324.0" layoutY="618.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.8;">
             <image>
                <Image url="@../images/cart-15-xxl.png" />
             </image>
          </ImageView>
-         <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="41.0" layoutY="808.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.8;">
+         <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="43.0" layoutY="822.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.8;">
             <image>
                <Image url="@../images/x-mark-4-xxl.png" />
             </image>
          </ImageView>
-         <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="324.0" layoutY="808.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.8;">
+         <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="324.0" layoutY="822.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.8;">
             <image>
                <Image url="@../images/credit-card-6-xxl.png" />
             </image>
          </ImageView>
+         <TextField fx:id="nameInput" layoutX="22.0" layoutY="54.0" prefHeight="49.0" prefWidth="463.0" promptText="Enter Item what You Want" style="-fx-background-color: #F5F5F5;" styleClass="searchInput" />
+         <Label layoutX="23.0" layoutY="14.0" prefHeight="27.0" prefWidth="157.0" style="-fx-font-weight: bold; -fx-background-size: 12;" styleClass="admin_name" text="Search Item" />
       </children>
    </AnchorPane>
    <Label layoutX="765.0" layoutY="78.0" prefHeight="27.0" prefWidth="96.0" style="-fx-font-weight: bold;" styleClass="admin_name" text="ALL ITEMS" />
    <Label layoutX="740.0" layoutY="695.0" prefHeight="27.0" prefWidth="146.0" style="-fx-font-weight: bold;" styleClass="admin_name" text="ORDER DETAILS" />
-   <Label layoutX="1523.0" layoutY="78.0" prefHeight="27.0" prefWidth="157.0" style="-fx-font-weight: bold;" styleClass="admin_name" text="CHECKOUT FORM" />
 
 </AnchorPane>

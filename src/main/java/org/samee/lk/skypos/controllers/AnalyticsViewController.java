@@ -7,10 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.samee.lk.skypos.models.AnalyticsModel;
@@ -43,6 +40,12 @@ public class AnalyticsViewController implements Initializable {
     public Label itemsSold;
     public LineChart salesLineChart;
     public TableView<RecentOrderTM> recentOrderTable;
+    public TextField idInput;
+    public Label itemNameLbl;
+    public Label categoryLbl;
+    public Label qtyLbl;
+    public Label priceLbl;
+    public Label idLbl;
     String formatted;
     public TableView <LowStockTM>lowStockTable;
     public TableView<OverStockTM> overStockTable;
@@ -54,13 +57,27 @@ public class AnalyticsViewController implements Initializable {
     public void removeItemLoad(ActionEvent actionEvent) {
     }
 
-    public void updateItemLoad(ActionEvent actionEvent) {
+    public void updateItemLoad(ActionEvent actionEvent) throws IOException {
+        Parent mainPageRoot = FXMLLoader.load(getClass().getResource("/org/samee/lk/skypos/update-view/update-view.fxml"));
+        Stage stage = (Stage) updateItem.getScene().getWindow();
+        stage.setScene(new Scene(mainPageRoot));
+        stage.show();
     }
 
-    public void addItemsLoad(ActionEvent actionEvent) {
+    public void addItemsLoad(ActionEvent actionEvent) throws IOException {
+        Parent mainPageRoot = FXMLLoader.load(getClass().getResource("/org/samee/lk/skypos/add-view/add-view.fxml"));
+        Stage stage = (Stage) addItems.getScene().getWindow();
+        stage.setScene(new Scene(mainPageRoot));
+        stage.show();
     }
 
-    public void viewItemPageLoad(ActionEvent actionEvent) {
+    public void viewItemPageLoad(ActionEvent actionEvent) throws IOException {
+        Parent mainPageRoot = FXMLLoader.load(getClass().getResource("/org/samee/lk/skypos/all-view/all-view.fxml"));
+        Stage stage = (Stage) viewItem.getScene().getWindow();
+
+        stage.setScene(new Scene(mainPageRoot));
+
+        stage.show();
     }
 
     public void analyticsLoad(ActionEvent actionEvent) {
@@ -82,34 +99,34 @@ public class AnalyticsViewController implements Initializable {
 
         LocalDateTime current = LocalDateTime.now();
 
-        // Format the date and time
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         formatted = current.format(formatter);
 
         datetime.setText(formatted);
         try {
-            // Retrieve analytics data
+
             int[] analyticsData = AnalyticsModel.loadAnalytics();
 
-            // Set summary labels
+
             totalOrders.setText(String.valueOf(analyticsData[0]));
             totalRevenue.setText(String.valueOf(analyticsData[1]));
             itemsSold.setText(String.valueOf(analyticsData[2]));
             totalItems.setText(String.valueOf(analyticsData[3]));
 
-            // Retrieve sales insights data
+
             Map<String, Double> salesData = AnalyticsModel.loadSalesInsights();
 
-            // Create a series for the LineChart
+
             LineChart.Series<String, Number> series = new LineChart.Series<>();
             series.setName("Revenue");
 
-            // Populate the series with sales data
+
             for (Map.Entry<String, Double> entry : salesData.entrySet()) {
                 series.getData().add(new LineChart.Data<>(entry.getKey(), entry.getValue()));
             }
 
-            // Add the series to the LineChart
+
             salesLineChart.getData().add(series);
 
             List<RecentOrderTM> recentOrders = AnalyticsModel.getRecentOrders();
@@ -136,5 +153,6 @@ public class AnalyticsViewController implements Initializable {
     }
 
 
-
+    public void searchItem(ActionEvent actionEvent) {
+    }
 }
