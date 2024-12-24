@@ -13,7 +13,7 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("checkout-view/checkout-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view/login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1900, 1000);
         FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), scene.getRoot());
         fadeIn.setFromValue(0.0);

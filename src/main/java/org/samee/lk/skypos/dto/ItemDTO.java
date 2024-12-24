@@ -7,6 +7,13 @@ public class ItemDTO {
     private int qty;
     private double price;
 
+    public ItemDTO(String name, String category, int qty, double price) {
+        this.name = name;
+        this.category = category;
+        this.qty = qty;
+        this.price = price;
+    }
+
     public ItemDTO(int id, String name, String category, int qty, double price) {
         this.id = id;
         this.name = name;

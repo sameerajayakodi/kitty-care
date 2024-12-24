@@ -75,10 +75,26 @@ public class ItemModel {
         }
     }
 
-    public static void addNewItem(ItemDTO itemDTO) throws ClassNotFoundException, SQLException {
-        DB.getDbConnection();
+    public static boolean addNewItem(ItemDTO itemDTO) throws ClassNotFoundException, SQLException {
+        boolean status = false;
+        Connection connection = DB.getDbConnection();
+        String sql = "INSERT INTO item (name, category, qty, price) VALUES (?, ?, ?, ?)";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
+        preparedStatement.setString(1, itemDTO.getName());
+        preparedStatement.setString(2, itemDTO.getCategory());
+        preparedStatement.setInt(3, itemDTO.getQty());
+        preparedStatement.setDouble(4, itemDTO.getPrice());
+
+        int i= preparedStatement.executeUpdate();
+        if (i > 0) {
+            status = true;
+        }else {
+            status = false;
+        }
+return status;
     }
+
 
 
 

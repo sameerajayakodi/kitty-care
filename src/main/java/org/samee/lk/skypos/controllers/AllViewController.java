@@ -6,10 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -124,7 +121,26 @@ public class AllViewController implements Initializable {
     }
 
 
-    public void logoutPageLoad(ActionEvent actionEvent) {
+    public void logoutPageLoad() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout Confirmation");
+        alert.setHeaderText("Are you sure you want to logout?");
+        alert.setContentText("Click OK to logout or Cancel to stay.");
+        alert.getDialogPane().getStylesheets().add(getClass().getResource("/assets/confirmAlert.css").toExternalForm());
+        alert.getDialogPane().getStyleClass().add("dialog-pane");
+        alert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                Parent loginPageRoot = null;
+                try {
+                    loginPageRoot = FXMLLoader.load(getClass().getResource("/org/samee/lk/skypos/login-view/login-view.fxml"));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                Stage stage = (Stage) logout.getScene().getWindow();
+                stage.setScene(new Scene(loginPageRoot));
+                stage.show();
+            }
+        });
     }
 
     public void removeItemLoad(ActionEvent actionEvent) {

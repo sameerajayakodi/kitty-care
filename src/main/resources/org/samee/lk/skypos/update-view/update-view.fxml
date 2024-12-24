@@ -14,9 +14,9 @@
 <AnchorPane prefHeight="1000" prefWidth="1900" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.samee.lk.skypos.controllers.UpdateController">
 <Pane layoutY="78.0" prefHeight="923.0" prefWidth="317.0" styleClass="sidebar">
     <children>
-        <Button fx:id="logout" layoutX="26.0" layoutY="842.0" onAction="#logoutPageLoad" prefHeight="47.0" prefWidth="255.0" styleClass="secondary-button" text="Logout" /><Button fx:id="updateItem" layoutX="31.0" layoutY="546.0" onAction="#updateItemLoad" prefHeight="49.0" prefWidth="255.0" styleClass="sidebar-button" text="Update Item" />
+        <Button fx:id="logout" layoutX="26.0" layoutY="842.0" onAction="#logoutPageLoad" prefHeight="47.0" prefWidth="255.0" styleClass="secondary-button" text="Logout" /><Button fx:id="updateItem" layoutX="31.0" layoutY="546.0" onAction="#updateItemLoad" prefHeight="49.0" prefWidth="255.0" styleClass="primary-button" text="Update Item" />
         <Button fx:id="addItems" layoutX="31.0" layoutY="457.0" onAction="#addItemsLoad" prefHeight="49.0" prefWidth="255.0" styleClass="sidebar-button" text="Add Items" />
-        <Button fx:id="viewItem" layoutX="31.0" layoutY="363.0" onAction="#viewItemPageLoad" prefHeight="49.0" prefWidth="255.0" styleClass="primary-button" text=" View All Items" />
+        <Button fx:id="viewItem" layoutX="31.0" layoutY="363.0" onAction="#viewItemPageLoad" prefHeight="49.0" prefWidth="255.0" styleClass="sidebar-button" text=" View All Items" />
         <Button fx:id="analytics" layoutX="31.0" layoutY="202.0" onAction="#analyticsLoad" prefHeight="49.0" prefWidth="255.0" styleClass="sidebar-button" text="Analytics" />
 
         <!-- Sidebar -->
@@ -31,7 +31,7 @@
         </ImageView>
         <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="66.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../images/eye-white.png" />
+                <Image url="@../images/eye.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="66.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
@@ -60,7 +60,7 @@
         <Label layoutX="21.0" layoutY="39.0" prefHeight="17.0" prefWidth="275.0" style="-fx-alignment: center; -fx-font-size: 30; -fx-font-weight: bold;" text="Dashboard" />
         <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="66.0" layoutY="557.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../images/refresh.png" />
+                <Image url="@../images/refresh-white.png" />
             </image>
         </ImageView>
     </children></Pane>

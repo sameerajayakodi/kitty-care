@@ -206,3 +206,11 @@
     -fx-font-weight: bold;
     -fx-alignment: center;
 }
+
+
+.loginCard {
+    -fx-background-color: white;
+    -fx-border-radius: 50 0 0 50;
+    -fx-background-radius: 50 0 0 50;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 8, 0, -2, 0); 
+}

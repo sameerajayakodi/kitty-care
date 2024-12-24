@@ -80,13 +80,13 @@
     </Pane>
 
     <!-- Main Content Area -->
-    <AnchorPane layoutX="324.0" layoutY="199.0" prefHeight="788.0" prefWidth="1563.0" styleClass="content_area">
+    <AnchorPane layoutX="324.0" layoutY="199.0" prefHeight="796.0" prefWidth="1563.0" styleClass="content_area">
         <children>
 
             <!-- Items Table -->
-            <AnchorPane layoutX="14.0" layoutY="17.0" prefHeight="757.0" prefWidth="933.0" styleClass="content_area">
+            <AnchorPane layoutX="14.0" layoutY="7.0" prefHeight="764.0" prefWidth="933.0" styleClass="content_area">
                 <children>
-                    <TableView fx:id="itemsTable" layoutX="13.0" layoutY="20.0" prefHeight="705.0" prefWidth="905.0">
+                    <TableView fx:id="itemsTable" layoutX="13.0" layoutY="9.0" prefHeight="751.0" prefWidth="905.0">
                         <columns>
                             <TableColumn fx:id="idColumn" prefWidth="60.0" text="ID" />
                             <TableColumn fx:id="nameColumn" prefWidth="302.0" text="Item Name" />
@@ -99,7 +99,7 @@
             </AnchorPane>
 
             <!-- Add Item Form -->
-            <AnchorPane layoutX="972.0" layoutY="24.0" prefHeight="757.0" prefWidth="577.0" style="-fx-background-color: #adc0e6;" styleClass="secondary-button">
+            <AnchorPane layoutX="972.0" layoutY="14.0" prefHeight="757.0" prefWidth="577.0" style="-fx-background-color: #adc0e6;" styleClass="secondary-button">
                 <children>
                     <Button layoutX="302.0" layoutY="653.0" onAction="#addItemAction" prefHeight="49.0" prefWidth="255.0" styleClass="primary-button" text="Add Item" />
                     <Label layoutX="30.0" layoutY="33.0" prefHeight="27.0" prefWidth="157.0" style="-fx-font-weight: bold; -fx-background-size: 12;" styleClass="admin_name" text="New Item Details" />
@@ -116,7 +116,7 @@
                     <Label layoutX="30.0" layoutY="205.0" prefHeight="27.0" prefWidth="134.0" style="-fx-font-weight: bold; -fx-background-size: 12;" styleClass="admin_name" text="Item Category" />
                     <Label layoutX="30.0" layoutY="437.0" prefHeight="27.0" prefWidth="106.0" style="-fx-font-weight: bold; -fx-background-size: 12;" styleClass="admin_name" text="Item Price" />
                     <Label layoutX="30.0" layoutY="321.0" prefHeight="27.0" prefWidth="134.0" style="-fx-font-weight: bold; -fx-background-size: 12;" styleClass="admin_name" text="Item Quantity" />
-                    <Button layoutX="26.0" layoutY="655.0" onAction="#addItemAction" prefHeight="49.0" prefWidth="255.0" styleClass="secondary-button" text="Cancel" />
+                    <Button layoutX="26.0" layoutY="655.0" onAction="#cleanAction" prefHeight="49.0" prefWidth="255.0" styleClass="secondary-button" text="Cancel" />
                     <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="70.0" layoutY="666.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.8;">
                         <image>
                             <Image url="@../images/x-mark-4-xxl.png" />
@@ -127,10 +127,10 @@
         </children>
     </AnchorPane>
       <!-- Search Bar Area -->
-      <AnchorPane layoutX="325.0" layoutY="84.0" prefHeight="104.0" prefWidth="1563.0" style="-fx-background-color: #adc0e6;" styleClass="content_area">
+      <AnchorPane layoutX="330.0" layoutY="87.0" prefHeight="104.0" prefWidth="1546.0" style="-fx-background-color: #adc0e6;" styleClass="content_area">
           <children>
-              <TextField fx:id="searchInput" layoutX="358.0" layoutY="28.0" prefHeight="49.0" prefWidth="388.0" promptText="Enter Item Name You Want" style="-fx-background-color: #F5F5F5;" styleClass="searchInput" />
-         <Button layoutX="793.0" layoutY="28.0" onAction="#searchItem" prefHeight="49.0" prefWidth="255.0" styleClass="primary-button" text="Search Item" />
+              <TextField fx:id="searchInput" layoutX="365.0" layoutY="28.0" prefHeight="49.0" prefWidth="388.0" promptText="Enter Item Name You Want" style="-fx-background-color: #F5F5F5;" styleClass="searchInput" />
+         <Button layoutX="779.0" layoutY="28.0" onAction="#searchItem" prefHeight="49.0" prefWidth="255.0" styleClass="primary-button" text="Search Item" />
               <ImageView fitHeight="27.0" fitWidth="31.0" layoutX="818.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.8;">
                   <image>
                       <Image url="@../images/search-12-xxl.png" />
