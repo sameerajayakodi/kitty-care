@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="1000" prefWidth="1900" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.samee.lk.skypos.controllers.LoginViewController">
+    <!-- Left side content area -->
+    <Pane prefHeight="1000.0" prefWidth="1323.0" style="-fx-background-color: #adc0e6;">
+      <children>
+         <ImageView fitHeight="1048.0" fitWidth="1733.0" layoutX="-260.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../images/background%20(2)%20(1).jpg" />
+            </image>
+         </ImageView>
+      </children>
+    </Pane>
+
+    <!-- Right side login form -->
+    <Pane layoutX="1323.0" layoutY="-1.0" prefHeight="1010.0" prefWidth="577.0" styleClass="loginCard">
+        <children>
+            <Pane layoutX="7.0" layoutY="9.0" prefHeight="988.0" prefWidth="562.0">
+                <children>
+                    <!-- Logo and Title -->
+                    <Label layoutX="189.0" layoutY="45.0" styleClass="navbar-title" text="KittyCare" />
+                    <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="314.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../images/paw.png" />
+                        </image>
+                    </ImageView>
+
+                    <!-- Welcome Text -->
+                    <Label layoutX="195.0" layoutY="361.0" styleClass="navbar-title" text="Welcome Back!" />
+                    <Label fx:id="errorLbl" layoutX="70.0" layoutY="407.0" style="-fx-font-size: 14;" text="Please login to your account to continue" />
+
+                    <!-- Login Form -->
+                    <Label layoutX="71.0" layoutY="435.0" styleClass="item-details" text="Username" />
+                    <TextField fx:id="usernameField" layoutX="71.0" layoutY="472.0" prefHeight="45.0" prefWidth="418.0" promptText="Enter your username" styleClass="searchInput" />
+
+                    <Label layoutX="73.0" layoutY="527.0" styleClass="item-details" text="Password" />
+                    <PasswordField fx:id="passwordField" layoutX="72.0" layoutY="562.0" prefHeight="45.0" prefWidth="418.0" promptText="Enter your password" styleClass="searchInput" />
+
+                    <!-- Login Button -->
+                    <Button fx:id="loginButton" layoutX="71.0" layoutY="645.0" onAction="#handleLogin" prefHeight="45.0" prefWidth="418.0" styleClass="primary-button" text="Login" />
+
+                    <!-- Footer Text -->
+                    <Label layoutX="183.0" layoutY="925.0" style="-fx-font-size: 12; -fx-opacity: 0.8;" text="© 2024 KittyCare. All rights reserved." />
+                </children>
+            </Pane>
+        </children>
+    </Pane>
+</AnchorPane>
