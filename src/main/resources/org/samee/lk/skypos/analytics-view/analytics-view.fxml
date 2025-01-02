@@ -65,6 +65,7 @@
                <Image url="@../images/refresh.png" />
             </image>
          </ImageView>
+
         </children></Pane>
 
     <Pane prefHeight="72.0" prefWidth="1900.0" styleClass="top-navbar">
