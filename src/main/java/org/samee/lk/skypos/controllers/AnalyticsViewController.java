@@ -46,6 +46,7 @@ public class AnalyticsViewController implements Initializable {
     public Label qtyLbl;
     public Label priceLbl;
     public Label idLbl;
+    public Button generateReportButton;
     String formatted;
     public TableView <LowStockTM>lowStockTable;
     public TableView<OverStockTM> overStockTable;
@@ -170,6 +171,7 @@ public class AnalyticsViewController implements Initializable {
             e.printStackTrace();
         }
     }
+
 
 
     public void searchItem(ActionEvent actionEvent) {
