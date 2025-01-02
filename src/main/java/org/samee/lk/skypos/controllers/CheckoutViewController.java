@@ -180,6 +180,8 @@ public class CheckoutViewController implements Initializable {
                 orderQtyInput.clear();
                 orderQtyInput.clear();
 
+               
+
             }else {
                 showErrorAlert("Please enter valid order quantity");
             }
