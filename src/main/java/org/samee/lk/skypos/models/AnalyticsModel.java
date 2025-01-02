@@ -1,5 +1,6 @@
 package org.samee.lk.skypos.models;
 
+import org.samee.lk.skypos.db.DB;
 import org.samee.lk.skypos.tm.LowStockTM;
 import org.samee.lk.skypos.tm.OverStockTM;
 import org.samee.lk.skypos.tm.RecentOrderTM;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 public class AnalyticsModel {
+
 
 
     public static int[] loadAnalytics() throws SQLException, ClassNotFoundException {
